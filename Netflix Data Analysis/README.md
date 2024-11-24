@@ -138,7 +138,7 @@ FROM netflix
 GROUP BY 1;
 ```
 
-### 10.Find each year and the average numbers of content release in India on netflix. Return top 5 year with highest avg content release!
+### 10. Find each year and the average numbers of content release in India on netflix. Return top 5 year with highest avg content release.
 
 ```sql
 SELECT 
