@@ -138,7 +138,7 @@ FROM netflix
 GROUP BY 1;
 ```
 
-### 10. Find each year and the average numbers of content release in India on netflix. Return top 5 year with highest avg content release.
+### 10. Find each year and the average numbers of content release in India on netflix. Return top 5 year with highest avg content release
 
 ```sql
 SELECT 
@@ -198,20 +198,20 @@ LIMIT 10;
 WITH new_table 
 as
 (
-	SELECT
-		*,
-		CASE
-		WHEN
-			description ILIKE '%Kill%' OR description ILIKE '%Violence%' THEN 'Bad Content'
-		ELSE 'Good Content'
-		END category
-	FROM netflix
+   SELECT
+      *,
+      CASE
+      WHEN
+         description ILIKE '%Kill%' OR description ILIKE '%Violence%' THEN 'Bad Content'
+      ELSE 'Good Content'
+      END category
+   FROM netflix
 )
-	SELECT 
-		category,
-		COUNT(*) as total_count
-	FROM new_table
-	GROUP BY 1;
+   SELECT 
+      category,
+      COUNT(*) as total_count
+   FROM new_table
+   GROUP BY 1;
 ```
 
 **Objective:** Categorize content as 'Bad' if it contains 'kill' or 'violence' and 'Good' otherwise. Count the number of items in each category.
