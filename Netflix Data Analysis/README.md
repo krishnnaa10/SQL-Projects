@@ -56,20 +56,20 @@ GROUP BY type;
 
 ```sql
 SELECT 
-	type,
-	rating
+   type,
+   rating
 FROM
 (
-	SELECT 
-		type, 
-		rating,
-		COUNT(*),
-		RANK() OVER(PARTITION BY type ORDER BY COUNT(*) DESC) as ranking
-	FROM netflix
-	GROUP BY 1, 2
+   SELECT 
+      type, 
+      rating,
+      COUNT(*),
+      RANK() OVER(PARTITION BY type ORDER BY COUNT(*) DESC) as ranking
+   FROM netflix
+   GROUP BY 1, 2
 )as t1
 WHERE
-	ranking = 1;
+   ranking = 1;
 ```
 
 **Objective:** Identify the most frequently occurring rating for each type of content.
