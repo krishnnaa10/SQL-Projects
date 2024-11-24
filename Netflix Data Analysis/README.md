@@ -22,18 +22,18 @@ The data for this project is sourced from the Kaggle dataset:
 ```sql
 CREATE TABLE netflix
 (
-	show_id VARCHAR(10),
-	type VARCHAR(15),
-	title VARCHAR(150),
-	director VARCHAR(220),
-	casts VARCHAR(1000),
-	country VARCHAR(150),
-	data_added VARCHAR(50),
-	release_year INT,
-	rating VARCHAR(10),
-	duration VARCHAR(15),
-	listed_in VARCHAR(100),
-	description VARCHAR(300)
+   show_id VARCHAR(10),
+   type VARCHAR(15),
+   title VARCHAR(150),
+   director VARCHAR(220),
+   casts VARCHAR(1000),
+   country VARCHAR(150),
+   data_added VARCHAR(50),
+   release_year INT,
+   rating VARCHAR(10),
+   duration VARCHAR(15),
+   listed_in VARCHAR(100),
+   description VARCHAR(300)
 );
 
 SELECT * FROM netflix;
@@ -45,8 +45,8 @@ SELECT * FROM netflix;
 
 ```sql
 SELECT
- 	type,
-	count(*) as total_count
+   type,
+   count(*) as total_count
 FROM netflix
 GROUP BY type;
 ```
