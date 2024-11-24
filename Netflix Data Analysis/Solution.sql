@@ -116,7 +116,8 @@ SELECT
 	,2)as avg_content_per_year
 FROM netflix
 WHERE country = 'India'
-GROUP BY 1;
+GROUP BY 1
+LIMIT 5;
 
 
 -- 11. List all movies that are documentaries
