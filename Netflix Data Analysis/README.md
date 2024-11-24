@@ -84,8 +84,8 @@ WHERE type='Movie' AND release_year=2020;
 
 ```sql
 SELECT 
-	UNNEST(STRING_TO_ARRAY(country, ','))as new_country,
-	COUNT(show_id) as total_count
+   UNNEST(STRING_TO_ARRAY(country, ','))as new_country,
+   COUNT(show_id) as total_count
 FROM netflix
 GROUP BY 1
 ORDER BY 2 DESC
@@ -95,83 +95,61 @@ LIMIT 5;
 ### 5. Identify the Longest Movie
 
 ```sql
-SELECT 
-    *
+SELECT * 
 FROM netflix
-WHERE type = 'Movie'
-ORDER BY SPLIT_PART(duration, ' ', 1)::INT DESC;
+WHERE type='Movie' AND duration = (SELECT MAX(duration)FROM netflix);
 ```
-
-**Objective:** Find the movie with the longest duration.
 
 ### 6. Find Content Added in the Last 5 Years
 
 ```sql
-SELECT *
+SELECT * 
 FROM netflix
-WHERE TO_DATE(date_added, 'Month DD, YYYY') >= CURRENT_DATE - INTERVAL '5 years';
+WHERE
+   TO_DATE(data_added, 'Month DD, YYYY') >= CURRENT_DATE - INTERVAL '5 Years';
 ```
-
-**Objective:** Retrieve content added to Netflix in the last 5 years.
 
 ### 7. Find All Movies/TV Shows by Director 'Rajiv Chilaka'
 
 ```sql
-SELECT *
-FROM (
-    SELECT 
-        *,
-        UNNEST(STRING_TO_ARRAY(director, ',')) AS director_name
-    FROM netflix
-) AS t
-WHERE director_name = 'Rajiv Chilaka';
+SELECT * 
+FROM netflix
+WHERE director ILIKE '%Rajiv Chilaka%';
 ```
-
-**Objective:** List all content directed by 'Rajiv Chilaka'.
 
 ### 8. List All TV Shows with More Than 5 Seasons
 
 ```sql
 SELECT *
 FROM netflix
-WHERE type = 'TV Show'
-  AND SPLIT_PART(duration, ' ', 1)::INT > 5;
+WHERE 
+   type = 'TV Show' 
+   AND
+   SPLIT_PART(duration, ' ', 1)::numeric > 5;
 ```
-
-**Objective:** Identify TV shows with more than 5 seasons.
 
 ### 9. Count the Number of Content Items in Each Genre
 
 ```sql
 SELECT 
-    UNNEST(STRING_TO_ARRAY(listed_in, ',')) AS genre,
-    COUNT(*) AS total_content
+   UNNEST(STRING_TO_ARRAY(listed_in, ',')) as genre,
+   COUNT(show_id) as total_count
 FROM netflix
 GROUP BY 1;
 ```
 
-**Objective:** Count the number of content items in each genre.
-
-### 10.Find each year and the average numbers of content release in India on netflix. 
-return top 5 year with highest avg content release!
+### 10.Find each year and the average numbers of content release in India on netflix. Return top 5 year with highest avg content release!
 
 ```sql
 SELECT 
-    country,
-    release_year,
-    COUNT(show_id) AS total_release,
-    ROUND(
-        COUNT(show_id)::numeric /
-        (SELECT COUNT(show_id) FROM netflix WHERE country = 'India')::numeric * 100, 2
-    ) AS avg_release
+   EXTRACT(YEAR FROM TO_DATE(data_added, 'Month DD, YYYY')) as year,
+   COUNT(*) as yearly_content,
+   ROUND(COUNT(*)::numeric/(SELECT COUNT(*) FROM netflix WHERE country='India') * 100, 2)as avg_content_per_year
 FROM netflix
 WHERE country = 'India'
-GROUP BY country, release_year
-ORDER BY avg_release DESC
+GROUP BY 1
 LIMIT 5;
 ```
-
-**Objective:** Calculate and rank years by the average number of content releases by India.
 
 ### 11. List All Movies that are Documentaries
 
