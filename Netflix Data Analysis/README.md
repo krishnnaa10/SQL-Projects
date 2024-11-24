@@ -72,36 +72,25 @@ WHERE
    ranking = 1;
 ```
 
-**Objective:** Identify the most frequently occurring rating for each type of content.
-
 ### 3. List All Movies Released in a Specific Year (e.g., 2020)
 
 ```sql
 SELECT * 
 FROM netflix
-WHERE release_year = 2020;
+WHERE type='Movie' AND release_year=2020;
 ```
-
-**Objective:** Retrieve all movies released in a specific year.
 
 ### 4. Find the Top 5 Countries with the Most Content on Netflix
 
 ```sql
-SELECT * 
-FROM
-(
-    SELECT 
-        UNNEST(STRING_TO_ARRAY(country, ',')) AS country,
-        COUNT(*) AS total_content
-    FROM netflix
-    GROUP BY 1
-) AS t1
-WHERE country IS NOT NULL
-ORDER BY total_content DESC
+SELECT 
+	UNNEST(STRING_TO_ARRAY(country, ','))as new_country,
+	COUNT(show_id) as total_count
+FROM netflix
+GROUP BY 1
+ORDER BY 2 DESC
 LIMIT 5;
 ```
-
-**Objective:** Identify the top 5 countries with the highest number of content items.
 
 ### 5. Identify the Longest Movie
 
