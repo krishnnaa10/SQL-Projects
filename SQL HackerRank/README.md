@@ -93,3 +93,17 @@ SELECT DISTINCT CITY
 FROM STATION
 WHERE ID % 2 = 0;
 ```
+
+**Q9-** Find the difference between the total number of CITY entries in the table and the number of distinct CITY entries in the table.
+
+The STATION table is described as follows:
+
+<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+
+```SQL
+SELECT
+(
+   SELECT COUNT(CITY)FROM STATION) - (SELECT COUNT(DISTINCT CITY)
+   FROM STATION
+);
+```
