@@ -77,6 +77,8 @@ The STATION table is described as follows:
 
 <img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
 
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
 ```SQL
 SELECT CITY, STATE
 FROM STATION;
@@ -87,6 +89,8 @@ FROM STATION;
 The STATION table is described as follows:
 
 <img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
 
 ```SQL
 SELECT DISTINCT CITY
@@ -99,6 +103,8 @@ WHERE ID % 2 = 0;
 The STATION table is described as follows:
 
 <img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
 
 ```SQL
 SELECT
@@ -113,6 +119,8 @@ SELECT
 The STATION table is described as follows:
 
 <img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
 
 ```SQL
 SELECT CITY, LENGTH(CITY)
