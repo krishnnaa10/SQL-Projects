@@ -166,7 +166,9 @@ FROM STATION
 WHERE SUBSTRING(REVERSE(CITY),1,1) IN ('A','E','I','O','U');
 ```
 
-**Q13-** Query a list of CITY names from STATION for cities that have an even ID number. Print the results in any order, but exclude duplicates from the answer.
+**Q13-** Query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, and u) as both their first and last characters. Your result cannot contain duplicates.
+
+Input Format
 
 The STATION table is described as follows:
 
@@ -175,7 +177,10 @@ The STATION table is described as follows:
 ```SQL
 SELECT DISTINCT CITY
 FROM STATION
-WHERE ID % 2 = 0;
+WHERE 
+   SUBSTRING(CITY,1,1) IN ('A','E','I','O','U') 
+   AND 
+   SUBSTRING(REVERSE(CITY),1,1) IN ('A','E','I','O','U');
 ```
 
 **Q14-** Query a list of CITY names from STATION for cities that have an even ID number. Print the results in any order, but exclude duplicates from the answer.
