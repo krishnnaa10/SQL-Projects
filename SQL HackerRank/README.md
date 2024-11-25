@@ -4,7 +4,7 @@
 
 The CITY table is described as follows:
 
-<img src="https://github.com/user-attachments/assets/00e37002-c8a2-457f-8877-db815c6f26b4" alt="Screenshot" height="300" />
+<img src="https://github.com/user-attachments/assets/00e37002-c8a2-457f-8877-db815c6f26b4" alt="Screenshot" height="200" />
 
 ```SQL
 SELECT *
@@ -16,7 +16,7 @@ WHERE POPULATION > 100000 AND COUNTRYCODE = "USA";
 
 The CITY table is described as follows:
 
-<img src="https://github.com/user-attachments/assets/00e37002-c8a2-457f-8877-db815c6f26b4" alt="Screenshot" height="300" />
+<img src="https://github.com/user-attachments/assets/00e37002-c8a2-457f-8877-db815c6f26b4" alt="Screenshot" height="200" />
 
 ```SQL
 SELECT NAME
@@ -28,7 +28,7 @@ WHERE POPULATION > 120000 AND COUNTRYCODE = "USA";
 
 The CITY table is described as follows:
 
-<img src="https://github.com/user-attachments/assets/00e37002-c8a2-457f-8877-db815c6f26b4" alt="Screenshot" height="300" />
+<img src="https://github.com/user-attachments/assets/00e37002-c8a2-457f-8877-db815c6f26b4" alt="Screenshot" height="200" />
 
 ```SQL
 SELECT *
@@ -39,7 +39,7 @@ FROM CITY;
 
 The CITY table is described as follows:
 
-<img src="https://github.com/user-attachments/assets/00e37002-c8a2-457f-8877-db815c6f26b4" alt="Screenshot" height="300" />
+<img src="https://github.com/user-attachments/assets/00e37002-c8a2-457f-8877-db815c6f26b4" alt="Screenshot" height="200" />
 
 ```SQL
 SELECT *
@@ -51,7 +51,7 @@ WHERE ID = 1661;
 
 The CITY table is described as follows:
 
-<img src="https://github.com/user-attachments/assets/00e37002-c8a2-457f-8877-db815c6f26b4" alt="Screenshot" height="300" />
+<img src="https://github.com/user-attachments/assets/00e37002-c8a2-457f-8877-db815c6f26b4" alt="Screenshot" height="200" />
 
 ```SQL
 SELECT *
@@ -63,7 +63,7 @@ WHERE COUNTRYCODE = "JPN";
 
 The CITY table is described as follows:
 
-<img src="https://github.com/user-attachments/assets/00e37002-c8a2-457f-8877-db815c6f26b4" alt="Screenshot" height="300" />
+<img src="https://github.com/user-attachments/assets/00e37002-c8a2-457f-8877-db815c6f26b4" alt="Screenshot" height="200" />
 
 ```SQL
 SELECT NAME
@@ -75,7 +75,7 @@ WHERE COUNTRYCODE = "JPN";
 
 The STATION table is described as follows:
 
-<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="200" />
 
 where LAT_N is the northern latitude and LONG_W is the western longitude.
 
@@ -88,7 +88,7 @@ FROM STATION;
 
 The STATION table is described as follows:
 
-<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="200" />
 
 where LAT_N is the northern latitude and LONG_W is the western longitude.
 
@@ -102,7 +102,7 @@ WHERE ID % 2 = 0;
 
 The STATION table is described as follows:
 
-<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="200" />
 
 where LAT_N is the northern latitude and LONG_W is the western longitude.
 
@@ -118,7 +118,7 @@ SELECT
 
 The STATION table is described as follows:
 
-<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="200" />
 
 where LAT_N is the northern latitude and LONG_W is the western longitude.
 
@@ -136,11 +136,9 @@ LIMIT 1;
 
 **Q11-** Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
 
-Input Format
-
 The STATION table is described as follows:
 
-<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="200" />
 
 where LAT_N is the northern latitude and LONG_W is the western longitude.
 
@@ -152,11 +150,9 @@ WHERE SUBSTRING(CITY,1,1) IN ('A','E','I','O','U');
 
 **Q12-** Query the list of CITY names ending with vowels (a, e, i, o, u) from STATION. Your result cannot contain duplicates.
 
-Input Format
-
 The STATION table is described as follows:
 
-<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="200" />
 
 where LAT_N is the northern latitude and LONG_W is the western longitude.
 
@@ -168,11 +164,9 @@ WHERE SUBSTRING(REVERSE(CITY),1,1) IN ('A','E','I','O','U');
 
 **Q13-** Query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, and u) as both their first and last characters. Your result cannot contain duplicates.
 
-Input Format
-
 The STATION table is described as follows:
 
-<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="200" />
 
 where LAT_N is the northern latitude and LONG_W is the western longitude.
 
@@ -187,11 +181,9 @@ WHERE
 
 **Q14-** Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.
 
-Input Format
-
 The STATION table is described as follows:
 
-<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="200" />
 
 where LAT_N is the northern latitude and LONG_W is the western longitude.
 
@@ -203,11 +195,9 @@ WHERE SUBSTRING(CITY,1,1) NOT IN ('A','E','I','O','U');
 
 **Q15-** Query the list of CITY names from STATION that do not end with vowels. Your result cannot contain duplicates.
 
-Input Format
-
 The STATION table is described as follows:
 
-<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="200" />
 
 where LAT_N is the northern latitude and LONG_W is the western longitude.
 
@@ -219,11 +209,9 @@ WHERE SUBSTRING(REVERSE(CITY),1,1) NOT IN ('A','E','I','O','U');
 
 **Q16-** Query the list of CITY names from STATION that either do not start with vowels or do not end with vowels. Your result cannot contain duplicates.
 
-Input Format
-
 The STATION table is described as follows:
 
-<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="200" />
 
 where LAT_N is the northern latitude and LONG_W is the western longitude.
 
@@ -238,11 +226,9 @@ WHERE
 
 **Q17-** Query the list of CITY names from STATION that do not start with vowels and do not end with vowels. Your result cannot contain duplicates.
 
-Input Format
-
 The STATION table is described as follows:
 
-<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="200" />
 
 where LAT_N is the northern latitude and LONG_W is the western longitude.
 
@@ -254,3 +240,31 @@ WHERE
    AND
    SUBSTRING(REVERSE(CITY),1,1) NOT IN ('A','E','I','O','U');
 ```
+
+**Q18-** Query the Name of any student in STUDENTS who scored higher than  Marks. Order your output by the last three characters of each name. If two or more students both have names ending in the same last three characters (i.e.: Bobby, Robby, etc.), secondary sort them by ascending ID.
+
+The STUDENTS table is described as follows:
+
+![1443815243-94b941f556-1](https://github.com/user-attachments/assets/516b72fd-8367-437f-9cc7-cf7995edb9d4)
+
+```SQL
+SELECT NAME
+FROM STUDENTS
+WHERE MARKS > 75
+ORDER BY SUBSTRING(NAME, -3, 3), ID ASC;
+```
+
+**Q19-** Write a query that prints a list of employee names (i.e.: the name attribute) from the Employee table in alphabetical order.
+
+The Employee table containing employee data for a company is described as follows:
+
+![1458557872-4396838885-ScreenShot2016-03-21at4 27 13PM](https://github.com/user-attachments/assets/db69b138-5eaf-4b83-bf03-fb074ca7cdcf)
+
+where employee_id is an employee's ID number, name is their name, months is the total number of months they've been working for the company, and salary is their monthly salary.
+
+```SQL
+SELECT name
+FROM Employee
+ORDER BY name ASC;
+```
+
