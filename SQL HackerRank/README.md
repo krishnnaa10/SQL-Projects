@@ -70,3 +70,26 @@ SELECT NAME
 FROM CITY
 WHERE COUNTRYCODE = "JPN";
 ```
+
+**Q7-** Query a list of CITY and STATE from the STATION table.
+
+The STATION table is described as follows:
+
+<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+
+```SQL
+SELECT CITY, STATE
+FROM STATION;
+```
+
+**Q8-** Query a list of CITY names from STATION for cities that have an even ID number. Print the results in any order, but exclude duplicates from the answer.
+
+The STATION table is described as follows:
+
+<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+
+```SQL
+SELECT DISTINCT CITY
+FROM STATION
+WHERE ID % 2 = 0;
+```
