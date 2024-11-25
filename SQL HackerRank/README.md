@@ -174,6 +174,8 @@ The STATION table is described as follows:
 
 <img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
 
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
 ```SQL
 SELECT DISTINCT CITY
 FROM STATION
@@ -183,14 +185,72 @@ WHERE
    SUBSTRING(REVERSE(CITY),1,1) IN ('A','E','I','O','U');
 ```
 
-**Q14-** Query a list of CITY names from STATION for cities that have an even ID number. Print the results in any order, but exclude duplicates from the answer.
+**Q14-** Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.
+
+Input Format
 
 The STATION table is described as follows:
 
 <img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
 
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
 ```SQL
 SELECT DISTINCT CITY
 FROM STATION
-WHERE ID % 2 = 0;
+WHERE SUBSTRING(CITY,1,1) NOT IN ('A','E','I','O','U');
+```
+
+**Q15-** Query the list of CITY names from STATION that do not end with vowels. Your result cannot contain duplicates.
+
+Input Format
+
+The STATION table is described as follows:
+
+<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+```SQL
+SELECT DISTINCT CITY
+FROM STATION
+WHERE SUBSTRING(REVERSE(CITY),1,1) NOT IN ('A','E','I','O','U');
+```
+
+**Q16-** Query the list of CITY names from STATION that either do not start with vowels or do not end with vowels. Your result cannot contain duplicates.
+
+Input Format
+
+The STATION table is described as follows:
+
+<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+```SQL
+SELECT DISTINCT CITY
+FROM STATION
+WHERE 
+   SUBSTRING(CITY,1,1) NOT IN ('A','E','I','O','U') 
+   OR 
+   SUBSTRING(REVERSE(CITY),1,1) NOT IN ('A','E','I','O','U');
+```
+
+**Q17-** Query the list of CITY names from STATION that do not start with vowels and do not end with vowels. Your result cannot contain duplicates.
+
+Input Format
+
+The STATION table is described as follows:
+
+<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+```SQL
+SELECT DISTINCT CITY
+FROM STATION
+WHERE 
+   SUBSTRING(CITY,1,1) NOT IN ('A','E','I','O','U') 
+   AND
+   SUBSTRING(REVERSE(CITY),1,1) NOT IN ('A','E','I','O','U');
 ```
