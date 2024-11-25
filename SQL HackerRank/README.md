@@ -34,3 +34,15 @@ The CITY table is described as follows:
 SELECT *
 FROM CITY;
 ```
+
+**Q4-** Query all columns for a city in CITY with the ID 1661.
+
+The CITY table is described as follows:
+
+<img src="https://github.com/user-attachments/assets/00e37002-c8a2-457f-8877-db815c6f26b4" alt="Screenshot" height="300" />
+
+```SQL
+SELECT *
+FROM CITY
+WHERE ID = 1661;
+```
