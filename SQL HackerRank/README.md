@@ -47,7 +47,7 @@ FROM CITY
 WHERE ID = 1661;
 ```
 
-**Q4-** Query all attributes of every Japanese city in the CITY table. The COUNTRYCODE for Japan is JPN.
+**Q5-** Query all attributes of every Japanese city in the CITY table. The COUNTRYCODE for Japan is JPN.
 
 The CITY table is described as follows:
 
@@ -55,6 +55,18 @@ The CITY table is described as follows:
 
 ```SQL
 SELECT *
+FROM CITY
+WHERE COUNTRYCODE = "JPN";
+```
+
+**Q6-** Query the names of all the Japanese cities in the CITY table. The COUNTRYCODE for Japan is JPN.
+
+The CITY table is described as follows:
+
+<img src="https://github.com/user-attachments/assets/00e37002-c8a2-457f-8877-db815c6f26b4" alt="Screenshot" height="300" />
+
+```SQL
+SELECT NAME
 FROM CITY
 WHERE COUNTRYCODE = "JPN";
 ```
