@@ -107,3 +107,69 @@ SELECT
    FROM STATION
 );
 ```
+
+**Q10-** Query the two cities in STATION with the shortest and longest CITY names, as well as their respective lengths (i.e.: number of characters in the name). If there is more than one smallest or largest city, choose the one that comes first when ordered alphabetically.
+
+The STATION table is described as follows:
+
+<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+
+```SQL
+SELECT CITY, LENGTH(CITY)
+FROM STATION
+ORDER BY LENGTH(CITY) ASC, CITY
+LIMIT 1;
+
+SELECT CITY, LENGTH(CITY)
+FROM STATION
+ORDER BY LENGTH(CITY) DESC, CITY
+LIMIT 1;
+```
+
+**Q11-** Query a list of CITY names from STATION for cities that have an even ID number. Print the results in any order, but exclude duplicates from the answer.
+
+The STATION table is described as follows:
+
+<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+
+```SQL
+SELECT DISTINCT CITY
+FROM STATION
+WHERE ID % 2 = 0;
+```
+
+**Q12-** Query a list of CITY names from STATION for cities that have an even ID number. Print the results in any order, but exclude duplicates from the answer.
+
+The STATION table is described as follows:
+
+<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+
+```SQL
+SELECT DISTINCT CITY
+FROM STATION
+WHERE ID % 2 = 0;
+```
+
+**Q13-** Query a list of CITY names from STATION for cities that have an even ID number. Print the results in any order, but exclude duplicates from the answer.
+
+The STATION table is described as follows:
+
+<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+
+```SQL
+SELECT DISTINCT CITY
+FROM STATION
+WHERE ID % 2 = 0;
+```
+
+**Q14-** Query a list of CITY names from STATION for cities that have an even ID number. Print the results in any order, but exclude duplicates from the answer.
+
+The STATION table is described as follows:
+
+<img src="https://github.com/user-attachments/assets/899274aa-f264-43ab-9c0b-d8f6e2f7019c" alt="Screenshot" height="300" />
+
+```SQL
+SELECT DISTINCT CITY
+FROM STATION
+WHERE ID % 2 = 0;
+```
