@@ -326,7 +326,14 @@ The OCCUPATIONS table is described as follows:
 Occupation will only contain one of the following values: Doctor, Professor, Singer or Actor.
 
 ```SQL
+SELECT CONCAT(Name,"(",SUBSTRING(Occupation,1,1),")")
+FROM OCCUPATIONS
+ORDER BY Name ASC;
 
+SELECT CONCAT("There are a total of ", COUNT(Occupation)," ", Lower(Occupation),"s.")
+FROM OCCUPATIONS
+GROUP BY Occupation
+ORDER BY COUNT(Occupation) ASC;
 ```
 
 **Q23-** Pivot the Occupation column in OCCUPATIONS so that each Name is sorted alphabetically and displayed underneath its corresponding Occupation. The output column headers should be Doctor, Professor, Singer, and Actor, respectively.
