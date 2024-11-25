@@ -248,10 +248,10 @@ The STUDENTS table is described as follows:
 ![1443815243-94b941f556-1](https://github.com/user-attachments/assets/516b72fd-8367-437f-9cc7-cf7995edb9d4)
 
 ```SQL
-SELECT NAME
+SELECT Name
 FROM STUDENTS
-WHERE MARKS > 75
-ORDER BY SUBSTRING(NAME, -3, 3), ID ASC;
+WHERE Marks > 75
+ORDER BY SUBSTRING(Name, -3, 3), ID ASC;
 ```
 
 **Q19-** Write a query that prints a list of employee names (i.e.: the name attribute) from the Employee table in alphabetical order.
@@ -268,3 +268,41 @@ FROM Employee
 ORDER BY name ASC;
 ```
 
+**Q20-** Write a query that prints a list of employee names (i.e.: the name attribute) for employees in Employee having a salary greater than $2000 per month who have been employees for less than 10 months. Sort your result by ascending employee_id.
+
+The Employee table containing employee data for a company is described as follows:
+
+![1458557872-4396838885-ScreenShot2016-03-21at4 27 13PM](https://github.com/user-attachments/assets/a2430eb0-d51e-4d98-b2e3-f24e57311edb)
+
+where employee_id is an employee's ID number, name is their name, months is the total number of months they've been working for the company, and salary is the their monthly salary.
+
+```SQL
+SELECT name
+FROM Employee
+WHERE salary > 2000 AND months < 10
+ORDER BY employee_id ASC;
+```
+
+**Q21-** Write a query identifying the type of each record in the TRIANGLES table using its three side lengths. Output one of the following statements for each record in the table:
+
+Equilateral: It's a triangle with  sides of equal length.
+Isosceles: It's a triangle with  sides of equal length.
+Scalene: It's a triangle with  sides of differing lengths.
+Not A Triangle: The given values of A, B, and C don't form a triangle.
+
+The TRIANGLES table is described as follows:
+
+![3](https://github.com/user-attachments/assets/d1065e1d-9a81-409b-b8ad-6bb79b8c3eb9)
+
+Each row in the table denotes the lengths of each of a triangle's three sides.
+
+```SQL
+SELECT 
+    CASE
+        WHEN A + B <= C OR A + C <= B OR B + C <= A THEN 'Not A Triangle'
+        WHEN A = B AND B = C THEN 'Equilateral'
+        WHEN A = B OR B = C OR A = C THEN 'Isosceles'
+        ELSE 'Scalene'
+    END AS TriangleType
+FROM TRIANGLES;
+```
