@@ -7,5 +7,7 @@ The CITY table is described as follows:
 <img src="https://github.com/user-attachments/assets/00e37002-c8a2-457f-8877-db815c6f26b4" alt="Screenshot" height="300" />
 
 ```SQL
-HELLO
+SELECT *
+FROM CITY
+WHERE POPULATION > 100000 AND COUNTRYCODE = "USA";
 ```
