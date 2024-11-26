@@ -384,3 +384,63 @@ SELECT
 FROM BST b
 ORDER BY N;
 ```
+
+**Q25-** Amber's conglomerate corporation just acquired some new companies. Each of the companies follows this hierarchy:
+
+![1458531031-249df3ae87-ScreenShot2016-03-21at8 59 56AM](https://github.com/user-attachments/assets/eaf76a9d-b88d-4032-ae4f-9fbe2eaa41e8)
+
+Given the table schemas below, write a query to print the company_code, founder name, total number of lead managers, total number of senior managers, total number of managers, and total number of employees. Order your output by ascending company_code.
+
+Note:
+
+The tables may contain duplicate records.
+The company_code is string, so the sorting should not be numeric. For example, if the company_codes are C_1, C_2, and C_10, then the ascending company_codes will be C_1, C_10, and C_2.
+Input Format
+
+The following tables contain company data:
+
+Company: The company_code is the code of the company and founder is the founder of the company.
+
+![1458531125-deb0a57ae1-ScreenShot2016-03-21at8 50 04AM](https://github.com/user-attachments/assets/9124021d-5fd3-426c-a372-ed5160054a5c)
+
+Lead_Manager: The lead_manager_code is the code of the lead manager, and the company_code is the code of the working company. 
+
+![le](https://github.com/user-attachments/assets/0fbabd0d-ecf5-4c2c-b1cc-283996b5db87)
+
+Senior_Manager: The senior_manager_code is the code of the senior manager, the lead_manager_code is the code of its lead manager, and the company_code is the code of the working company. 
+
+![sm](https://github.com/user-attachments/assets/a0e9c8c0-428c-4b88-8150-f8f8be687fb8)
+
+Manager: The manager_code is the code of the manager, the senior_manager_code is the code of its senior manager, the lead_manager_code is the code of its lead manager, and the company_code is the code of the working company. 
+
+![mc](https://github.com/user-attachments/assets/03042e17-11ef-489d-9618-d55bbfaff59d)
+
+Employee: The employee_code is the code of the employee, the manager_code is the code of its manager, the senior_manager_code is the code of its senior manager, the lead_manager_code is the code of its lead manager, and the company_code is the code of the working company. 
+
+![ec](https://github.com/user-attachments/assets/1d1c6b53-a2cf-43db-b031-411d49edb184)
+
+```SQL
+SELECT 
+   C.company_code,
+   C.founder,
+   COUNT(DISTINCT L.lead_manager_code),
+   COUNT(DISTINCT S.senior_manager_code),
+   COUNT(DISTINCT M.manager_code),
+   COUNT(DISTINCT E.employee_code)
+FROM Company AS C
+
+JOIN lead_manager AS L
+ON C.company_code = L.company_code
+
+JOIN senior_manager AS S
+ON L.lead_manager_code = S.lead_manager_code
+
+JOIN manager AS M
+ON M.senior_manager_code = S.senior_manager_code
+
+JOIN employee AS E
+ON E.manager_code = M.manager_code
+
+GROUP BY C.company_code, C.founder
+ORDER BY C.company_code;
+```
