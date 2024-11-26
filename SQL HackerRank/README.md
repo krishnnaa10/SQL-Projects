@@ -527,7 +527,7 @@ Note: Salary is per month.
 
 Constraints
 
-1000 < Salary < 10e5
+1000 < Salary < 100000
 
 ```SQL
 SELECT CEIL(AVG(Salary) - AVG(REPLACE(Salary, '0', '')))
