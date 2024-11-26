@@ -534,7 +534,7 @@ SELECT CEIL(AVG(Salary) - AVG(REPLACE(Salary, '0', '')))
 FROM EMPLOYEES;
 ```
 
-**Q33-** We define an employee's total earnings to be their monthly  worked, and the maximum total earnings to be the maximum total earnings for any employee in the Employee table. Write a query to find the maximum total earnings for all employees as well as the total number of employees who have maximum total earnings. Then print these values as  space-separated integers.
+**Q33-** We define an employee's total earnings to be their monthly *salary * months* worked, and the maximum total earnings to be the maximum total earnings for any employee in the Employee table. Write a query to find the maximum total earnings for all employees as well as the total number of employees who have maximum total earnings. Then print these values as 2 space-separated integers.
 
 The Employee table containing employee data for a company is described as follows:
 
@@ -546,4 +546,116 @@ where employee_id is an employee's ID number, name is their name, months is the 
 SELECT MAX(salary * months), COUNT(*)
 FROM Employee
 WHERE (salary * months) >= (SELECT MAX(Salary * months) FROM Employee);
+```
+
+**Q34-** Query the following two values from the STATION table:
+
+The sum of all values in LAT_N rounded to a scale of 2 decimal places.
+The sum of all values in LONG_W rounded to a scale of 2 decimal places.
+
+The STATION table is described as follows:
+
+![wheretwr](https://github.com/user-attachments/assets/7d19fe97-0fb8-440e-8afe-8ee00dd50bc7)
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+```SQL
+SELECT ROUND(SUM(LAT_N),2), ROUND(SUM(LONG_W),2)
+FROM STATION;
+```
+
+**Q35-** Query the sum of Northern Latitudes (LAT_N) from STATION having values greater than 38.7880 and less than 137.2345. Truncate your answer to 4 decimal places.
+
+The STATION table is described as follows:
+
+![wheretwr](https://github.com/user-attachments/assets/7d19fe97-0fb8-440e-8afe-8ee00dd50bc7)
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+```SQL
+SELECT ROUND(SUM(LAT_N),4)
+FROM STATION
+WHERE LAT_N > 38.7880 AND LAT_N < 137.2345;
+```
+
+**Q36-** Query the greatest value of the Northern Latitudes (LAT_N) from STATION that is less than 137.2345. Truncate your answer to 4 decimal places.
+
+The STATION table is described as follows:
+
+![wheretwr](https://github.com/user-attachments/assets/7d19fe97-0fb8-440e-8afe-8ee00dd50bc7)
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+```SQL
+SELECT ROUND(MAX(LAT_N),4)
+FROM STATION
+WHERE LAT_N < 137.2345;
+```
+
+**Q37-** Query the Western Longitude (LONG_W) for the largest Northern Latitude (LAT_N) in STATION that is less than 137.2345. Round your answer to 4 decimal places.
+
+The STATION table is described as follows:
+
+![wheretwr](https://github.com/user-attachments/assets/7d19fe97-0fb8-440e-8afe-8ee00dd50bc7)
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+```SQL
+SELECT ROUND(LONG_W,4)
+FROM STATION
+WHERE LAT_N < 137.2345
+ORDER BY LAT_N DESC
+LIMIT 1;
+```
+
+**Q38-** Query the smallest Northern Latitude (LAT_N) from STATION that is greater than 38.7780. Round your answer to 4 decimal places.
+
+The STATION table is described as follows:
+
+![wheretwr](https://github.com/user-attachments/assets/7d19fe97-0fb8-440e-8afe-8ee00dd50bc7)
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+```SQL
+SELECT ROUND(LAT_N,4)
+FROM STATION
+WHERE LAT_N > 38.7780
+ORDER BY LAT_N ASC
+LIMIT 1;
+```
+
+**Q39-** Query the Western Longitude (LONG_W)where the smallest Northern Latitude (LAT_N) in STATION is greater than 38.7780. Round your answer to 4 decimal places.
+
+The STATION table is described as follows:
+
+![wheretwr](https://github.com/user-attachments/assets/7d19fe97-0fb8-440e-8afe-8ee00dd50bc7)
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+```SQL
+SELECT ROUND(LONG_W,4)
+FROM STATION
+WHERE 
+   LAT_N = (SELECT MIN(LAT_N) 
+            FROM STATION 
+            WHERE LAT_N> 38.7780);
+```
+
+**Q40-** Consider p1(a,b) and p2(c,d) to be two points on a 2D plane.
+
+ + a happens to equal the minimum value in Northern Latitude (LAT_N in STATION).
+ + b happens to equal the minimum value in Western Longitude (LONG_W in STATION).
+ + c happens to equal the maximum value in Northern Latitude (LAT_N in STATION).
+ + d happens to equal the maximum value in Western Longitude (LONG_W in STATION).
+Query the Manhattan Distance between points p1 and p2 and round it to a scale of 4 decimal places.
+
+The STATION table is described as follows:
+
+![wheretwr](https://github.com/user-attachments/assets/7d19fe97-0fb8-440e-8afe-8ee00dd50bc7)
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+```SQL
+SELECT ROUND(ABS(MIN(LAT_N) - MAX(LAT_N)) + ABS(MIN(LONG_W) - MAX(LONG_W)),4)
+FROM STATION;
 ```
