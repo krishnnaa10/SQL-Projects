@@ -381,6 +381,6 @@ SELECT
       WHEN(SELECT COUNT(*) FROM BST WHERE P = b.N) > 0 THEN 'Inner'
       ELSE 'Leaf'
    END
-FROM bst b
+FROM BST b
 ORDER BY N;
 ```
