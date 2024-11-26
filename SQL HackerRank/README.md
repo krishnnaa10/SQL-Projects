@@ -444,3 +444,73 @@ ON E.manager_code = M.manager_code
 GROUP BY C.company_code, C.founder
 ORDER BY C.company_code;
 ```
+
+**Q26-** Query a count of the number of cities in CITY having a Population larger than.
+
+The CITY table is described as follows:
+
+![1449729804-f21d187d0f-CITY](https://github.com/user-attachments/assets/628ff322-82e8-40c5-be74-33c45703380c)
+
+```SQL
+SELECT COUNT(POPULATION)
+FROM CITY
+WHERE POPULATION > 100000;
+```
+
+**Q27-** Query the total population of all cities in CITY where District is California.
+
+The CITY table is described as follows:
+
+![1449729804-f21d187d0f-CITY](https://github.com/user-attachments/assets/628ff322-82e8-40c5-be74-33c45703380c)
+
+```SQL
+SELECT SUM(POPULATION)
+FROM CITY
+WHERE DISTRICT = 'California';
+```
+
+**Q28-** Query the average population of all cities in CITY where District is California.
+
+The CITY table is described as follows:
+
+![1449729804-f21d187d0f-CITY](https://github.com/user-attachments/assets/628ff322-82e8-40c5-be74-33c45703380c)
+
+```SQL
+SELECT AVG(POPULATION)
+FROM CITY
+WHERE DISTRICT = 'California';
+```
+
+**Q29-** Query the average population for all cities in CITY, rounded down to the nearest integer.
+
+The CITY table is described as follows:
+
+![1449729804-f21d187d0f-CITY](https://github.com/user-attachments/assets/628ff322-82e8-40c5-be74-33c45703380c)
+
+```SQL
+SELECT ROUND(AVG(POPULATION))
+FROM CITY;
+```
+
+**Q30-** Query the sum of the populations for all Japanese cities in CITY. The COUNTRYCODE for Japan is JPN.
+
+The CITY table is described as follows:
+
+![1449729804-f21d187d0f-CITY](https://github.com/user-attachments/assets/628ff322-82e8-40c5-be74-33c45703380c)
+
+```SQL
+SELECT SUM(POPULATION)
+FROM CITY
+WHERE COUNTRYCODE = 'JPN';
+```
+
+**Q31-** Query the difference between the maximum and minimum populations in CITY.
+
+The CITY table is described as follows:
+
+![1449729804-f21d187d0f-CITY](https://github.com/user-attachments/assets/628ff322-82e8-40c5-be74-33c45703380c)
+
+```SQL
+SELECT (MAX(POPULATION) - MIN(POPULATION))
+FROM CITY;
+```
