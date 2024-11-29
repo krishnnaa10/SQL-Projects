@@ -1,4 +1,4 @@
-# SQL HackerRank
+![CITY](https://github.com/user-attachments/assets/025c7535-c5f0-469a-be0c-64bdcfabc1df)# SQL HackerRank
 
 **Q1-** Query all columns for all American cities in the CITY table with populations larger than 100000. The CountryCode for America is USA.
 
@@ -693,4 +693,53 @@ FROM(
 WHERE rnk = (
    SELECT ROUND(COUNT(*)/2) 
    FROM STATION);
+```
+
+**Q43-** Given the CITY and COUNTRY tables, query the sum of the populations of all cities where the CONTINENT is 'Asia'.
+
+Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+
+The CITY and COUNTRY tables are described as follows:
+
+![CITY](https://github.com/user-attachments/assets/cb519107-c425-4f31-ac9e-bad7259cddca)
+
+![COUNTRY](https://github.com/user-attachments/assets/4e71c8b0-2b30-4c2a-b989-6a45e12be8fe)
+
+```SQL
+SELECT SUM(a.POPULATION)
+FROM CITY a, COUNTRY b
+WHERE a.COUNTRYCODE = b.CODE AND b.CONTINENT = 'ASIA';
+```
+
+**Q44-** Given the CITY and COUNTRY tables, query the names of all cities where the CONTINENT is 'Africa'.
+
+Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+
+The CITY and COUNTRY tables are described as follows:
+
+![CITY](https://github.com/user-attachments/assets/cb519107-c425-4f31-ac9e-bad7259cddca)
+
+![COUNTRY](https://github.com/user-attachments/assets/4e71c8b0-2b30-4c2a-b989-6a45e12be8fe)
+
+```SQL
+SELECT a.NAME
+FROM CITY a, COUNTRY b
+WHERE a.COUNTRYCODE = b.CODE AND b.CONTINENT = 'AFRICA';
+```
+
+**Q45-** Given the CITY and COUNTRY tables, query the names of all the continents (COUNTRY.Continent) and their respective average city populations (CITY.Population) rounded down to the nearest integer.
+
+Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+
+The CITY and COUNTRY tables are described as follows:
+
+![CITY](https://github.com/user-attachments/assets/cb519107-c425-4f31-ac9e-bad7259cddca)
+
+![COUNTRY](https://github.com/user-attachments/assets/4e71c8b0-2b30-4c2a-b989-6a45e12be8fe)
+
+```SQL
+SELECT b.CONTINENT, FLOOR(AVG(a.POPULATION)) AS avg_population
+FROM CITY a
+JOIN COUNTRY b ON a.COUNTRYCODE = b.CODE
+GROUP BY b.CONTINENT;
 ```
