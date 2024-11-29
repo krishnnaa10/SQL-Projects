@@ -659,3 +659,38 @@ where LAT_N is the northern latitude and LONG_W is the western longitude.
 SELECT ROUND(ABS(MIN(LAT_N) - MAX(LAT_N)) + ABS(MIN(LONG_W) - MAX(LONG_W)),4)
 FROM STATION;
 ```
+
+**Q41-** Consider p1(a,c) and p2(b,d) to be two points on a 2D plane where (a,b) are the respective minimum and maximum values of Northern Latitude (LAT_N) and (c,d) are the respective minimum and maximum values of Western Longitude (LONG_W) in STATION.
+
+Query the Euclidean Distance between points p1 and p2 and format your answer to display 4 decimal digits.
+
+The STATION table is described as follows:
+
+![wheretwr](https://github.com/user-attachments/assets/7d19fe97-0fb8-440e-8afe-8ee00dd50bc7)
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+```SQL
+SELECT ROUND(SQRT(POW(MAX(LAT_N)-MIN(LAT_N),2) + POW(MAX(LONG_W)-MIN(LONG_W),2)),4)
+FROM STATION;
+```
+
+**Q42-** A median is defined as a number separating the higher half of a data set from the lower half. Query the median of the Northern Latitudes (LAT_N) from STATION and round your answer to 4 decimal places.
+
+The STATION table is described as follows:
+
+![wheretwr](https://github.com/user-attachments/assets/7d19fe97-0fb8-440e-8afe-8ee00dd50bc7)
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+```SQL
+SELECT ROUND(LAT_N, 4)
+FROM(
+   SELECT ROW_NUMBER() 
+   OVER(ORDER BY LAT_N ASC) AS rnk, LAT_N 
+   FROM STATION
+   )a    
+WHERE rnk = (
+   SELECT ROUND(COUNT(*)/2) 
+   FROM STATION);
+```
