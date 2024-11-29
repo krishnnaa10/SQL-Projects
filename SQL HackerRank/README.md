@@ -1,4 +1,4 @@
-![CITY](https://github.com/user-attachments/assets/025c7535-c5f0-469a-be0c-64bdcfabc1df)# SQL HackerRank
+# SQL HackerRank
 
 **Q1-** Query all columns for all American cities in the CITY table with populations larger than 100000. The CountryCode for America is USA.
 
