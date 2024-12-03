@@ -798,3 +798,29 @@ GROUP BY h.hacker_id, h.name
 HAVING COUNT(s.hacker_id) > 1
 ORDER BY COUNT(s.challenge_id) DESC, s.hacker_id;
 ```
+
+**Q48-** Harry Potter and his friends are at Ollivander's with Ron, finally replacing Charlie's old broken wand.
+
+Hermione decides the best way to choose is by determining the minimum number of gold galleons needed to buy each non-evil wand of high power and age. Write a query to print the id, age, coins_needed, and power of the wands that Ron's interested in, sorted in order of descending power. If more than one wand has same power, sort the result in order of descending age.
+
+The following tables contain data on the wands in Ollivander's inventory:
+
+Wands: The id is the id of the wand, code is the code of the wand, coins_needed is the total number of gold galleons needed to buy the wand, and power denotes the quality of the wand (the higher the power, the better the wand is). 
+
+![1458538092-b2a8163a74-ScreenShot2016-03-08at12 13 39AM](https://github.com/user-attachments/assets/d45cccb3-6a98-44e6-ae79-2dd791802dbe)
+
+Wands_Property: The code is the code of the wand, age is the age of the wand, and is_evil denotes whether the wand is good for the dark arts. If the value of is_evil is 0, it means that the wand is not evil. The mapping between code and age is one-one, meaning that if there are two pairs, (code1, age1) and (code2, age2), then code1 ≠ code2 and age1 ≠ age2.
+
+![1458538221-18c4092b7d-ScreenShot2016-03-08at12 13 53AM](https://github.com/user-attachments/assets/e0634cf6-0f30-4fa1-8160-aa45c0aebc7f)
+
+```SQL
+SELECT x.id, y.age, x.coins_needed, x.power
+FROM Wands AS x
+JOIN Wands_Property AS y ON x.code = y.code
+JOIN(SELECT age AS a, MIN(coins_needed) AS c, power AS p
+FROM Wands AS x1
+JOIN Wands_Property AS y1 ON x1.code = y1.code
+WHERE is_evil = 0
+GROUP BY power, age) AS q ON y.age = a AND x.coins_needed = c AND x.power = p
+ORDER BY x.power DESC, y.age DESC
+```
